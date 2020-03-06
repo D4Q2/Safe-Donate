@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>
+   Donate
+  </title>
+
+  <link rel="shortcut icon" href="/Users/daniel/Desktop/SAFE logo.png" type="image/x-icon" />
+
+  <style>
+   body
+   {
+     background-color: #7fdbff;
+   }
+
+   .openMenu
+   {
+     width: 75px;
+     height: 30px;
+     float: right;
+     color: #010101; /* Text color */
+     background-color: transparent; /* Remove background color */
+     border: 2px solid #010101; /* Border thickness, line style, and color */
+     border-radius: 20px; /* Adds curve to border corners */
+     text-transform: uppercase; /* Make letters uppercase */
+     font-size: 12pt;
+   }
+
+   .menuButton
+   {
+     width: 75px;   /* how many pixels wide */
+     height: 30px;  /* how many pixels tall */
+     float: right;  /* Puts it to the right of other elements */
+     color: #010101; /* Text color */
+     background-color: transparent; /* Remove background color */
+     border: 2px solid #010101; /* Border thickness, line style, and color */
+     border-radius: 20px; /* Adds curve to border corners */
+     text-transform: uppercase; /* Make letters uppercase */
+     font-size: 8pt; /* font size */
+   }
+
+   .menuButton:active
+   {
+     width: 100px;   /* how many pixels wide */
+     height: 35px;  /* how many pixels tall */
+     float: right;  /* Puts it to the right of other elements */
+     color: #010101; /* Text color */
+     background-color: transparent; /* Remove background color */
+     border: 2px solid #010101; /* Border thickness, line style, and color */
+     border-radius: 20px; /* Adds curve to border corners */
+     text-transform: uppercase; /* Make letters uppercase */
+     font-size: 10pt; /* font size */
+   }
+
+
+   .title
+   {
+     margin-top: 30px;
+     font-size: 44pt; // size of font (in point)
+     font-weight: bold;
+     text-align: center;
+     color: #101010;
+   }
+
+   .subtitle
+   {
+     font-size: 18pt;
+     font-weight: bold;
+     text-align: center;
+     color: #101010;
+   }
+
+   .finkHeader
+   {
+     float: left;
+     text-align: center;
+     margin-top: 50px;
+     margin-left: 50px;
+     font-size: 24pt;
+     font-weight: bold;
+   }
+
+   .finkImage
+   {
+     float: right;
+     margin-right: 50px;
+     text-align: center;
+   }
+
+   .finkText
+   {
+     margin-top: 130px;
+     margin-left: 50px;
+     font-size: 18pt;
+   }
+
+   .philHeader
+   {
+     float: right;
+     text-align: center;
+     margin-top: 100px;
+     margin-right: 50px;
+     font-size: 24pt;
+     font-weight: bold;
+   }
+
+   .philImage
+   {
+     float: left;
+     margin-top: 30px;
+     margin-left: 50px;
+     text-align: center;
+   }
+
+   .philText
+   {
+     margin-top: 13px;
+     float: right;
+     margin-right: 50px;
+     font-size: 18pt;
+   }
+
+
+   .towHeader
+   {
+     float: left;
+     text-align: center;
+     margin-top: 50px;
+     margin-left: 50px;
+     font-size: 24pt;
+     font-weight: bold;
+   }
+
+   .towImage
+   {
+     float: right;
+     margin-top: 30px;
+     margin-right: 50px;
+     text-align: center;
+   }
+
+   .towText
+   {
+     margin-top: 730px;
+     margin-left: 50px;
+     font-size: 18pt;
+   }
+  </style>
+  <script>
+
+   // A function to take us to the donate page
+   function homePage()
+   {
+     // Code to take us to the donate page
+     window.open('https://d4q2.github.io/home');
+   }
+
+   // And the same thing for the host drive page
+   function hostDrivePage()
+   {
+     window.open('https://d4q2.github.io/hostdrive');
+   }
+
+   // And for the settings page
+   function settingsPage()
+   {
+     window.open('https://d4q2.github.io/settings');
+   }
+
+
+   let menuBool = false;
+
+   function openMenu()
+   {
+     menuBool = menuBool ? false : true;
+
+
+     if (menuBool == true)
+     {
+       var menu = document.getElementById("menu");
+
+       // Create a button (in this case it will be the donate button)
+       var homeButton = document.createElement("BUTTON");
+
+        // Change the innerHTML to a sensible set of text (in this case donate)
+        homeButton.innerHTML = "Home";
+
+        // Change the class to the class for menu buttons and the id to donateButton so we can access it
+        // easier and it can assume previously defined css values
+        homeButton.setAttribute("class", "menuButton");
+        homeButton.setAttribute("id", "homeButton");
+
+        // Change the onclick value to what we want (in this case a function to take us  to the donate page)
+        homeButton.onclick = homePage;
+
+        // Append donateButton to the menu <div>
+        menu.appendChild(homeButton);
+
+        // Move it into the perfect position
+        homeButton.style.transform = "translateX(-10px)";
+
+        // Now do the same process for the host drive button
+        var hostDriveButton = document.createElement("BUTTON");
+        hostDriveButton.innerHTML = "Host Drive";
+        hostDriveButton.setAttribute("class", "menuButton");
+        hostDriveButton.setAttribute("id", "hostDriveButton");
+        menu.appendChild(hostDriveButton);
+        hostDriveButton.style.transform = "translateX(-20px)";
+        hostDriveButton.onclick = hostDrivePage;
+
+
+        // ...And for the settings button
+        var settingsButton = document.createElement("BUTTON");
+        settingsButton.innerHTML = "Settings";
+        settingsButton.setAttribute("class", "menuButton");
+        settingsButton.setAttribute("id", "settingsButton");
+        menu.appendChild(settingsButton);
+        settingsButton.style.transform = "translateX(-30px)";
+        settingsButton.onclick = settingsPage;
+     }
+
+     else
+     {
+       // Clear our menu div
+       document.getElementById("menu").innerHTML = "";
+
+       // Get variable for menu div and make variable for our new openMenu button
+       var menu = document.getElementById("menu");
+       var menuOpener = document.createElement("BUTTON");
+ 
+       // Specify qualities for our openMenu button
+       menuOpener.innerHTML = "Menu";
+       menuOpener.setAttribute("class", "openMenu");
+       menuOpener.setAttribute("id", "menuOpener");
+       menuOpener.onclick = openMenu;
+
+       // Append it to the menu div
+       menu.appendChild(menuOpener);
+     }
+   }
+
+
+
+  </script>
+
+
+
+
+ </head>
+ <body>
+  <div class="menu" id="menu">
+   <button class="openMenu" id="openMenuButton" onclick="openMenu()">Menu</button>
+  </div>
+  <br>
+
+
+  <div class="title" id="title">
+   Mid-Atlantic SAFE
+   <p class="subtitle"> Bringing toys to children in need.</p>
+  </div>
+
+
+  <div class="finkHeader" id="finkHeader">
+   Finksburg
+  </div>
+
+  <div class="finkImage" id="finkImage">
+   <image src="file:///Users/daniel/Desktop/Finksburg.png" width="500px">
+   <br>
+   <a href="https://goo.gl/maps/XfNWHMmcDUWXSscc6">Open in Google Maps</a>
+  </div>
+
+  <div class="finkText">
+   Email: <a href="mailto:finksburg@SAFE.com">finksburg@SAFE.com</a>
+  </div>
+
+
+  <div class="philImage" id="philImage">
+   <image src="file:///Users/daniel/Desktop/Philadelphia.png" width="500px">
+   <br>
+   <a href="https://goo.gl/maps/pEtwNaQJh3AdvTBm8">Open in Google Maps</a>
+  </div>
+
+  <div class="philHeader" id="philHeader">
+   Philadelphia
+  </div>
+
+  <div class="philText">
+   Email: <a href="mailto:philadelphia@SAFE.com">philadelphia@SAFE.com</a>
+  </div>
+
+
+
+  <div class="towImage" id="towImage">
+   <image src="file:///Users/daniel/Desktop/Towson.png" width="500px">
+   <br>
+   <a href="https://goo.gl/maps/EYt6VnUxaUn6LwhVA">Open in Google Maps</a>
+  </div>
+
+  <div class="towHeader" id="towHeader">
+   Towson
+  </div>
+
+  <div class="towText">
+   Email: <a href="mailto:towson@SAFE.com">towson@SAFE.com</a>
+  </div>
+ </body>
+</html>
